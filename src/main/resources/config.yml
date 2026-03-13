@@ -1,0 +1,17 @@
+# ################################################
+# #          Configuración de HidePlayer         #
+# ################################################
+
+# Versión de la configuración (no cambiar)
+config-version: 1.0
+
+# Habilitar mensajes de depuración en la consola
+debug: false
+
+# Prefijo del plugin
+prefix: "&8[&bHidePlayer&8] &r"
+
+# Mensajes del plugin
+messages:
+  no-permission: "%prefix%&cNo tienes permiso para ejecutar esto."
+  plugin-reloaded: "%prefix%&aConfiguración recargada correctamente."

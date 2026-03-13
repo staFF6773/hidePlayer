@@ -1,4 +1,10 @@
 name: hidePlayer
 version: '0.1'
-main: org.hidePlayer
+main: org.hideplayer.HidePlayer
 api-version: '1.20'
+
+commands:
+  hideplayer:
+    description: "Comando principal de HidePlayer"
+    aliases: [hp]
+    usage: /hideplayer <subcomando>
