@@ -1,0 +1,4 @@
+name: hidePlayer
+version: '0.1'
+main: org.hidePlayer
+api-version: '1.20'
