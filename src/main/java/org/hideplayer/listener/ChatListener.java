@@ -30,7 +30,16 @@ public class ChatListener implements Listener {
             Set<Player> recipients = event.getRecipients();
 
             // Mensaje que verán los administradores
-            String adminFormat = event.getFormat().replace("%1$s", "%1$s &8(" + originalName + ")&r");
+            String formatAddon = plugin.getSettings().getConfig().getString("admin-chat-format", "%1$s &8(%hideplayer_original_name%)&r");
+            if (plugin.getServer().getPluginManager().getPlugin("PlaceholderAPI") != null) {
+                formatAddon = me.clip.placeholderapi.PlaceholderAPI.setPlaceholders(player, formatAddon);
+            } else {
+                // Fallback básico si PAPI no está instalado
+                formatAddon = formatAddon.replace("%hideplayer_original_name%", originalName)
+                                         .replace("%hideplayer_nick%", player.getName());
+            }
+
+            String adminFormat = event.getFormat().replace("%1$s", formatAddon);
             String adminMessageFormatted = String.format(adminFormat, player.getDisplayName(), event.getMessage());
             String finalAdminMessage = ChatColor.translateAlternateColorCodes('&', adminMessageFormatted);
 

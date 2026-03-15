@@ -42,6 +42,11 @@ public final class HidePlayer extends JavaPlugin {
             getServer().getPluginManager().registerEvents(new org.hideplayer.listener.ChatListener(this), this);
             getServer().getPluginManager().registerEvents(new org.hideplayer.listener.ConnectionListener(this), this);
 
+            if (getServer().getPluginManager().getPlugin("PlaceholderAPI") != null) {
+                new org.hideplayer.hook.HidePlayerExpansion(this).register();
+                LoggerUtils.info("Soporte para PlaceholderAPI habilitado.");
+            }
+
             LoggerUtils.info("Plugin habilitado correctamente.");
         } catch (Exception e) {
             LoggerUtils.logException("Carga inicial del plugin", e);
@@ -104,6 +109,11 @@ public final class HidePlayer extends JavaPlugin {
 
         String prefix = settings.getConfig().getString("prefix", "");
         message = message.replace("%prefix%", prefix);
+
+        // Si PAPI está habilitado y el sender es un jugador, parsear las variables
+        if (sender instanceof org.bukkit.entity.Player && getServer().getPluginManager().getPlugin("PlaceholderAPI") != null) {
+            message = me.clip.placeholderapi.PlaceholderAPI.setPlaceholders((org.bukkit.entity.Player) sender, message);
+        }
 
         sender.sendMessage(org.bukkit.ChatColor.translateAlternateColorCodes('&', message));
     }

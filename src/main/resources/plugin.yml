@@ -2,7 +2,7 @@ name: hidePlayer
 version: '0.1'
 main: org.hideplayer.HidePlayer
 api-version: '1.20'
-softdepend: [SkinsRestorer]
+softdepend: [SkinsRestorer, PlaceholderAPI]
 
 commands:
   hideplayer:

@@ -20,3 +20,8 @@ messages:
   shown-success: "%prefix%&eTu identidad ha sido restaurada."
   skin-error: "%prefix%&cOcurrió un error al cambiar tu skin."
   usage-hide: "%prefix%&7Uso: &f/hp hide <nick> <skin>"
+  
+# Formato de chat para los administradores que vean al presunto jugador falso
+# %1$s se reemplaza por el formato del Nick + Prefijo de los otros plugins y luego pegamos el original
+# Permite usar placeholders de PlaceholderAPI
+admin-chat-format: "%1$s &8(%hideplayer_original_name%)&r"
