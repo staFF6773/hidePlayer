@@ -6,6 +6,7 @@ messages:
   shown-success: "%prefix%&eTu identidad ha sido restaurada."
   skin-error: "%prefix%&cOcurrió un error al cambiar tu skin."
   usage-hide: "%prefix%&7Uso: &f/hp hide <nick> <skin>"
+  invalid-name: "%prefix%&cEl nombre debe tener entre 3 y 16 caracteres y solo contener letras, números y guiones bajos."
   update-available:
     - "%prefix%&e¡Hay una nueva actualización disponible para HidePlayer!"
     - "%prefix%&eVersión actual: &c%current_version% &e-> Nueva versión: &a%new_version%"

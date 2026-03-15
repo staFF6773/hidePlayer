@@ -21,3 +21,21 @@ language: "en"
 # %1$s is replaced by the Nick + Prefix format of other plugins and then the original is appended
 # Allows using PlaceholderAPI placeholders
 admin-chat-format: "%1$s &8(%hideplayer_original_name%)&r"
+
+# Sounds
+sounds:
+  hide:
+    enabled: true
+    sound: "ENTITY_ENDERMAN_TELEPORT"
+    volume: 1.0
+    pitch: 1.0
+  show:
+    enabled: true
+    sound: "ENTITY_PLAYER_LEVELUP"
+    volume: 1.0
+    pitch: 1.0
+  error:
+    enabled: true
+    sound: "ENTITY_VILLAGER_NO"
+    volume: 1.0
+    pitch: 1.0

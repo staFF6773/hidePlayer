@@ -7,6 +7,7 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.TabCompleter;
 import org.hideplayer.HidePlayer;
+import org.hideplayer.util.SoundUtils;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -40,19 +41,29 @@ public class MainCommand implements CommandExecutor, TabCompleter {
                 return true;
             }
 
+            Player player = (Player) sender;
+
             if (!sender.hasPermission("hideplayer.hide")) {
                 plugin.sendMessage(sender, "messages.no-permission");
+                SoundUtils.playSound(player, "sounds.error");
                 return true;
             }
 
             if (args.length < 3) {
                 plugin.sendMessage(sender, "messages.usage-hide");
+                SoundUtils.playSound(player, "sounds.error");
                 return true;
             }
 
-            Player player = (Player) sender;
             String nick = args[1];
             String skin = args[2];
+
+            String strippedNick = ChatColor.stripColor(ChatColor.translateAlternateColorCodes('&', nick));
+            if (!strippedNick.matches("^[a-zA-Z0-9_]{3,16}$") || !skin.matches("^[a-zA-Z0-9_]{3,16}$")) {
+                plugin.sendMessage(sender, "messages.invalid-name");
+                SoundUtils.playSound(player, "sounds.error");
+                return true;
+            }
 
             plugin.getPlayerManager().hidePlayer(player, nick, skin);
 
@@ -62,6 +73,7 @@ public class MainCommand implements CommandExecutor, TabCompleter {
                 String prefix = plugin.getSettings().getConfig().getString("prefix", "");
                 sender.sendMessage(ChatColor.translateAlternateColorCodes('&', msg.replace("%prefix%", prefix)));
             }
+            SoundUtils.playSound(player, "sounds.hide");
             return true;
         }
 
@@ -71,20 +83,26 @@ public class MainCommand implements CommandExecutor, TabCompleter {
                 return true;
             }
 
+            Player player = (Player) sender;
+
             if (!sender.hasPermission("hideplayer.show")) {
                 plugin.sendMessage(sender, "messages.no-permission");
+                SoundUtils.playSound(player, "sounds.error");
                 return true;
             }
 
-            Player player = (Player) sender;
             plugin.getPlayerManager().showPlayer(player);
             plugin.sendMessage(player, "messages.shown-success");
+            SoundUtils.playSound(player, "sounds.show");
             return true;
         }
 
         if (args[0].equalsIgnoreCase("reload")) {
             if (!sender.hasPermission("hideplayer.admin")) {
                 plugin.sendMessage(sender, "messages.no-permission");
+                if (sender instanceof Player) {
+                    SoundUtils.playSound((Player) sender, "sounds.error");
+                }
                 return true;
             }
 
@@ -95,6 +113,9 @@ public class MainCommand implements CommandExecutor, TabCompleter {
 
         // If the subcommand does not exist
         sender.sendMessage(ChatColor.translateAlternateColorCodes('&', "&cUnknown command. Use /hp for help."));
+        if (sender instanceof Player) {
+            SoundUtils.playSound((Player) sender, "sounds.error");
+        }
         return true;
     }
 
