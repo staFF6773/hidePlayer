@@ -1,27 +1,19 @@
 # ################################################
-# #          Configuración de HidePlayer         #
+# #          HidePlayer Configuration            #
 # ################################################
 
-# Versión de la configuración (no cambiar)
-config-version: 1.0
+# Configuration version (do not change)
+config-version: 0.1
 
-# Habilitar mensajes de depuración en la consola
+# Enable debug messages in console
 debug: true
 
-# Prefijo del plugin
+# Plugin prefix
 prefix: "&8[&bHidePlayer&8] &r"
 
-# Mensajes del plugin
-messages:
-  no-permission: "%prefix%&cNo tienes permiso para ejecutar esto."
-  plugin-reloaded: "%prefix%&aConfiguración recargada correctamente."
-  player-only: "%prefix%&cEste comando solo lo pueden usar jugadores."
-  hidden-success: "%prefix%&aAhora estás oculto como &f%nick%&a."
-  shown-success: "%prefix%&eTu identidad ha sido restaurada."
-  skin-error: "%prefix%&cOcurrió un error al cambiar tu skin."
-  usage-hide: "%prefix%&7Uso: &f/hp hide <nick> <skin>"
-  
-# Formato de chat para los administradores que vean al presunto jugador falso
-# %1$s se reemplaza por el formato del Nick + Prefijo de los otros plugins y luego pegamos el original
-# Permite usar placeholders de PlaceholderAPI
+# Select language (langs/en.yml, langs/es.yml, etc.)
+language: "en"
+# Chat format for administrators to see the hidden player
+# %1$s is replaced by the Nick + Prefix format of other plugins and then the original is appended
+# Allows using PlaceholderAPI placeholders
 admin-chat-format: "%1$s &8(%hideplayer_original_name%)&r"

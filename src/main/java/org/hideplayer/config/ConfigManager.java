@@ -35,7 +35,16 @@ public class ConfigManager {
         configFile = new File(plugin.getDataFolder(), fileName);
 
         if (!configFile.exists()) {
-            plugin.saveResource(fileName, false);
+            if (plugin.getResource(fileName) != null) {
+                plugin.saveResource(fileName, false);
+            } else {
+                try {
+                    configFile.getParentFile().mkdirs();
+                    configFile.createNewFile();
+                } catch (IOException e) {
+                    plugin.getLogger().log(Level.SEVERE, "No se pudo crear " + fileName, e);
+                }
+            }
         }
 
         reload();

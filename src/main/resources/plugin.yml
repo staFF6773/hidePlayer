@@ -6,6 +6,6 @@ softdepend: [SkinsRestorer, PlaceholderAPI]
 
 commands:
   hideplayer:
-    description: "Comando principal de HidePlayer"
+    description: "Main command of HidePlayer"
     aliases: [hp]
-    usage: /hideplayer <subcomando>
+    usage: /hideplayer <subcommand>

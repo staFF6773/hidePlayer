@@ -1,0 +1,8 @@
+messages:
+  no-permission: "%prefix%&cYou do not have permission to execute this."
+  plugin-reloaded: "%prefix%&aConfiguration reloaded successfully."
+  player-only: "%prefix%&cThis command can only be used by players."
+  hidden-success: "%prefix%&aYou are now hidden as &f%nick%&a."
+  shown-success: "%prefix%&eYour identity has been restored."
+  skin-error: "%prefix%&cAn error occurred while changing your skin."
+  usage-hide: "%prefix%&7Usage: &f/hp hide <nick> <skin>"

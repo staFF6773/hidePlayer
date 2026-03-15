@@ -27,10 +27,10 @@ public class MainCommand implements CommandExecutor, TabCompleter {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (args.length == 0) {
-            // Aquí puedes mostrar la versión o ayuda
+            // Here you can change the version or help
             sender.sendMessage(ChatColor.translateAlternateColorCodes('&',
                     "&bHidePlayer &7v" + plugin.getDescription().getVersion()));
-            sender.sendMessage(ChatColor.translateAlternateColorCodes('&', "&7Usa &f/hp reload &7para recargar."));
+            sender.sendMessage(ChatColor.translateAlternateColorCodes('&', "&7Use &f/hp reload &7to reload."));
             return true;
         }
 
@@ -56,7 +56,7 @@ public class MainCommand implements CommandExecutor, TabCompleter {
 
             plugin.getPlayerManager().hidePlayer(player, nick, skin);
 
-            String msg = plugin.getSettings().getConfig().getString("messages.hidden-success");
+            String msg = plugin.getLangConfig().getConfig().getString("messages.hidden-success");
             if (msg != null) {
                 msg = msg.replace("%nick%", nick);
                 String prefix = plugin.getSettings().getConfig().getString("prefix", "");
@@ -83,13 +83,13 @@ public class MainCommand implements CommandExecutor, TabCompleter {
                 return true;
             }
 
-            plugin.getSettings().reload();
+            plugin.reloadConfigs();
             plugin.sendMessage(sender, "messages.plugin-reloaded");
             return true;
         }
 
-        // Si el subcomando no existe
-        sender.sendMessage(ChatColor.translateAlternateColorCodes('&', "&cComando desconocido. Usa /hp para ayuda."));
+        // If the subcommand does not exist
+        sender.sendMessage(ChatColor.translateAlternateColorCodes('&', "&cUnknown command. Use /hp for help."));
         return true;
     }
 

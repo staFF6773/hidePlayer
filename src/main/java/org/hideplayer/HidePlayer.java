@@ -15,6 +15,7 @@ public final class HidePlayer extends JavaPlugin {
 
     private static HidePlayer instance;
     private ConfigManager settings;
+    private ConfigManager langConfig;
     private SkinManager skinManager;
     private PlayerManager playerManager;
 
@@ -23,7 +24,7 @@ public final class HidePlayer extends JavaPlugin {
         // Asignar instancia Singleton
         instance = this;
 
-        LoggerUtils.info("Iniciando HidePlayer...");
+        LoggerUtils.info("Starting HidePlayer...");
 
         try {
             // Inicializar Configuración
@@ -44,29 +45,46 @@ public final class HidePlayer extends JavaPlugin {
 
             if (getServer().getPluginManager().getPlugin("PlaceholderAPI") != null) {
                 new org.hideplayer.hook.HidePlayerExpansion(this).register();
-                LoggerUtils.info("Soporte para PlaceholderAPI habilitado.");
+                LoggerUtils.info("PlaceholderAPI support enabled.");
             }
 
-            LoggerUtils.info("Plugin habilitado correctamente.");
+            LoggerUtils.info("Plugin enabled successfully.");
         } catch (Exception e) {
-            LoggerUtils.logException("Carga inicial del plugin", e);
+            LoggerUtils.logException("Initial plugin loading", e);
             getServer().getPluginManager().disablePlugin(this);
         }
     }
 
     @Override
     public void onDisable() {
-        LoggerUtils.info("Deshabilitando HidePlayer...");
+        LoggerUtils.info("Disabling HidePlayer...");
         instance = null;
     }
 
-    /**
-     * Configura el manejo de archivos YML.
-     */
+    private String getLanguageFileName() {
+        String lang = settings.getConfig().getString("language", "en");
+        if (!lang.endsWith(".yml")) {
+            lang += ".yml";
+        }
+        if (lang.contains("/")) {
+            return lang;
+        }
+        return "langs/" + lang;
+    }
+
     private void setupConfig() {
         settings = new ConfigManager(this, "config.yml");
-        // Ejemplo de lectura:
-        // boolean debug = settings.getConfig().getBoolean("debug", false);
+        
+        // Ensure that default languages are extracted/created
+        new ConfigManager(this, "langs/en.yml");
+        new ConfigManager(this, "langs/es.yml");
+        
+        langConfig = new ConfigManager(this, getLanguageFileName());
+    }
+
+    public void reloadConfigs() {
+        settings.reload();
+        langConfig = new ConfigManager(this, getLanguageFileName());
     }
 
     /**
@@ -87,6 +105,10 @@ public final class HidePlayer extends JavaPlugin {
         return settings;
     }
 
+    public ConfigManager getLangConfig() {
+        return langConfig;
+    }
+
     public SkinManager getSkinManager() {
         return skinManager;
     }
@@ -103,7 +125,7 @@ public final class HidePlayer extends JavaPlugin {
      * @param path   La ruta del mensaje en la configuración
      */
     public void sendMessage(org.bukkit.command.CommandSender sender, String path) {
-        String message = settings.getConfig().getString(path);
+        String message = langConfig.getConfig().getString(path);
         if (message == null || message.isEmpty())
             return;
 
