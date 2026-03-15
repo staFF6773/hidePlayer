@@ -1,0 +1,37 @@
+package org.hideplayer.listener;
+
+import org.bukkit.entity.Player;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.Listener;
+import org.bukkit.event.player.PlayerJoinEvent;
+import org.hideplayer.HidePlayer;
+import org.hideplayer.manager.PlayerManager;
+
+public class ConnectionListener implements Listener {
+
+    private final HidePlayer plugin;
+
+    public ConnectionListener(HidePlayer plugin) {
+        this.plugin = plugin;
+    }
+
+    @EventHandler
+    public void onPlayerJoin(PlayerJoinEvent event) {
+        Player player = event.getPlayer();
+        
+        // Comprobar si está en el archivo y restaurar su estado visual
+        if (plugin.getPlayerManager().isHidden(player)) {
+            PlayerManager.HiddenData data = plugin.getPlayerManager().getHiddenData(player);
+            if (data != null) {
+                // Aplicar con retraso de 5 ticks (1/4 de segundo) 
+                // para que el evento de unirse procese la skin global y los plugins de tablist
+                plugin.getServer().getScheduler().runTaskLater(plugin, () -> {
+                    if (player.isOnline()) {
+                        // Enviamos true para asegurar que la skin se re-aplique o verifique
+                        plugin.getPlayerManager().applyHiddenState(player, data.getNick(), data.getSkin(), true);
+                    }
+                }, 5L);
+            }
+        }
+    }
+}

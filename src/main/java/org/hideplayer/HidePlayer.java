@@ -37,7 +37,10 @@ public final class HidePlayer extends JavaPlugin {
             MainCommand mainCmd = new MainCommand(this);
             getCommand("hideplayer").setExecutor(mainCmd);
             getCommand("hideplayer").setTabCompleter(mainCmd);
-            // registerEvents();
+
+            // Registrar Eventos
+            getServer().getPluginManager().registerEvents(new org.hideplayer.listener.ChatListener(this), this);
+            getServer().getPluginManager().registerEvents(new org.hideplayer.listener.ConnectionListener(this), this);
 
             LoggerUtils.info("Plugin habilitado correctamente.");
         } catch (Exception e) {
