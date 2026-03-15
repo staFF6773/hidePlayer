@@ -1,4 +1,7 @@
-# HidePlayer
+<div align="center">
+  <img src=".github/static/icon.jpg" alt="HidePlayer Icon" width="150"/>
+  <h1>HidePlayer</h1>
+</div>
 
 HidePlayer is a lightweight and powerful Minecraft plugin for Spigot/Paper (1.20+) that allows administrators or specific players to hide their real identity by changing their nickname and skin in-game.
 
