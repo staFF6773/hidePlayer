@@ -6,7 +6,7 @@
 config-version: 1.0
 
 # Habilitar mensajes de depuración en la consola
-debug: false
+debug: true
 
 # Prefijo del plugin
 prefix: "&8[&bHidePlayer&8] &r"
@@ -15,3 +15,8 @@ prefix: "&8[&bHidePlayer&8] &r"
 messages:
   no-permission: "%prefix%&cNo tienes permiso para ejecutar esto."
   plugin-reloaded: "%prefix%&aConfiguración recargada correctamente."
+  player-only: "%prefix%&cEste comando solo lo pueden usar jugadores."
+  hidden-success: "%prefix%&aAhora estás oculto como &f%nick%&a."
+  shown-success: "%prefix%&eTu identidad ha sido restaurada."
+  skin-error: "%prefix%&cOcurrió un error al cambiar tu skin."
+  usage-hide: "%prefix%&7Uso: &f/hp hide <nick> <skin>"

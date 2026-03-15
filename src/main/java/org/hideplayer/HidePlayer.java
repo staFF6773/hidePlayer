@@ -3,6 +3,8 @@ package org.hideplayer;
 import org.hideplayer.command.MainCommand;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.hideplayer.config.ConfigManager;
+import org.hideplayer.manager.PlayerManager;
+import org.hideplayer.manager.SkinManager;
 import org.hideplayer.util.LoggerUtils;
 
 /**
@@ -13,6 +15,8 @@ public final class HidePlayer extends JavaPlugin {
 
     private static HidePlayer instance;
     private ConfigManager settings;
+    private SkinManager skinManager;
+    private PlayerManager playerManager;
 
     @Override
     public void onEnable() {
@@ -24,6 +28,10 @@ public final class HidePlayer extends JavaPlugin {
         try {
             // Inicializar Configuración
             setupConfig();
+
+            // Inicializar Managers
+            this.skinManager = new SkinManager();
+            this.playerManager = new PlayerManager(this);
 
             // Registrar Comandos
             MainCommand mainCmd = new MainCommand(this);
@@ -69,6 +77,14 @@ public final class HidePlayer extends JavaPlugin {
      */
     public ConfigManager getSettings() {
         return settings;
+    }
+
+    public SkinManager getSkinManager() {
+        return skinManager;
+    }
+
+    public PlayerManager getPlayerManager() {
+        return playerManager;
     }
 
     /**
