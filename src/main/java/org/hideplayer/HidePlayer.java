@@ -18,6 +18,7 @@ public final class HidePlayer extends JavaPlugin {
     private ConfigManager langConfig;
     private SkinManager skinManager;
     private PlayerManager playerManager;
+    private org.hideplayer.util.UpdateChecker updateChecker;
 
     @Override
     public void onEnable() {
@@ -29,6 +30,10 @@ public final class HidePlayer extends JavaPlugin {
         try {
             // Inicializar Configuración
             setupConfig();
+
+            // Setup UpdateChecker
+            this.updateChecker = new org.hideplayer.util.UpdateChecker(this, "staFF6773/hidePlayer");
+            this.updateChecker.checkForUpdates();
 
             // Inicializar Managers
             this.skinManager = new SkinManager();
@@ -115,6 +120,10 @@ public final class HidePlayer extends JavaPlugin {
 
     public PlayerManager getPlayerManager() {
         return playerManager;
+    }
+
+    public org.hideplayer.util.UpdateChecker getUpdateChecker() {
+        return updateChecker;
     }
 
     /**

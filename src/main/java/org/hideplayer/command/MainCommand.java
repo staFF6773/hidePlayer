@@ -40,7 +40,7 @@ public class MainCommand implements CommandExecutor, TabCompleter {
                 return true;
             }
 
-            if (!sender.hasPermission("hideplayer.admin")) {
+            if (!sender.hasPermission("hideplayer.hide")) {
                 plugin.sendMessage(sender, "messages.no-permission");
                 return true;
             }
@@ -68,6 +68,11 @@ public class MainCommand implements CommandExecutor, TabCompleter {
         if (args[0].equalsIgnoreCase("show")) {
             if (!(sender instanceof Player)) {
                 plugin.sendMessage(sender, "messages.player-only");
+                return true;
+            }
+
+            if (!sender.hasPermission("hideplayer.show")) {
+                plugin.sendMessage(sender, "messages.no-permission");
                 return true;
             }
 

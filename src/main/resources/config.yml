@@ -8,11 +8,15 @@ config-version: 0.1
 # Enable debug messages in console
 debug: true
 
+# Check for new updates on GitHub
+check_updates: true
+
 # Plugin prefix
 prefix: "&8[&bHidePlayer&8] &r"
 
 # Select language (langs/en.yml, langs/es.yml, etc.)
 language: "en"
+
 # Chat format for administrators to see the hidden player
 # %1$s is replaced by the Nick + Prefix format of other plugins and then the original is appended
 # Allows using PlaceholderAPI placeholders

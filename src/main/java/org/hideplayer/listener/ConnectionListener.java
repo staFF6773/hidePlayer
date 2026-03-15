@@ -19,6 +19,11 @@ public class ConnectionListener implements Listener {
     public void onPlayerJoin(PlayerJoinEvent event) {
         Player player = event.getPlayer();
         
+        // Notificar actualización si corresponde
+        if (player.hasPermission("hideplayer.admin")) {
+            plugin.getUpdateChecker().notifyPlayer(player);
+        }
+        
         // Comprobar si está en el archivo y restaurar su estado visual
         if (plugin.getPlayerManager().isHidden(player)) {
             PlayerManager.HiddenData data = plugin.getPlayerManager().getHiddenData(player);

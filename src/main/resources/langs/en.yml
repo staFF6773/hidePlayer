@@ -6,3 +6,7 @@ messages:
   shown-success: "%prefix%&eYour identity has been restored."
   skin-error: "%prefix%&cAn error occurred while changing your skin."
   usage-hide: "%prefix%&7Usage: &f/hp hide <nick> <skin>"
+  update-available:
+    - "%prefix%&eA new update is available for HidePlayer!"
+    - "%prefix%&eCurrent version: &c%current_version% &e-> New version: &a%new_version%"
+    - "%prefix%&eDownload: &b%link%"
