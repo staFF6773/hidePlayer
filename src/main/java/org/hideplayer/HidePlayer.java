@@ -19,6 +19,7 @@ public final class HidePlayer extends JavaPlugin {
     private SkinManager skinManager;
     private PlayerManager playerManager;
     private org.hideplayer.util.UpdateChecker updateChecker;
+    private org.hideplayer.gui.AdminPanelGUI adminPanelGUI;
 
     @Override
     public void onEnable() {
@@ -38,6 +39,7 @@ public final class HidePlayer extends JavaPlugin {
             // Inicializar Managers
             this.skinManager = new SkinManager();
             this.playerManager = new PlayerManager(this);
+            this.adminPanelGUI = new org.hideplayer.gui.AdminPanelGUI(this);
 
             // Registrar Comandos
             MainCommand mainCmd = new MainCommand(this);
@@ -126,8 +128,13 @@ public final class HidePlayer extends JavaPlugin {
         return updateChecker;
     }
 
+    public org.hideplayer.gui.AdminPanelGUI getAdminPanelGUI() {
+        return adminPanelGUI;
+    }
+
     /**
      * Envía un mensaje formateado a un receptor (jugador o consola).
+
      * Reemplaza el placeholder %prefix% por el prefijo de la config.
      *
      * @param sender El receptor del mensaje

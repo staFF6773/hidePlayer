@@ -117,6 +117,11 @@ public class PlayerManager {
         return data != null ? data.getOriginalName() : player.getName();
     }
     
+    public Map<UUID, HiddenData> getHiddenPlayers() {
+        return hiddenPlayers;
+    }
+
+    
     public HiddenData getHiddenData(Player player) {
         return hiddenPlayers.get(player.getUniqueId());
     }

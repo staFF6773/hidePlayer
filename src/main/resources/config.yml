@@ -39,3 +39,24 @@ sounds:
     sound: "ENTITY_VILLAGER_NO"
     volume: 1.0
     pitch: 1.0
+
+# Admin Panel GUI configuration
+admin-panel:
+  title: "&cAdmin Panel - Page {page}"
+  size: 54
+  next-page-item:
+    material: "ARROW"
+    name: "&aNext Page"
+    lore:
+      - "&7Click to go to the next page!"
+  prev-page-item:
+    material: "ARROW"
+    name: "&cPrevious Page"
+    lore:
+      - "&7Click to go to the previous page!"
+  player-head:
+    name: "&a{original_name}"
+    lore:
+      - "&7Nick: &f{nick}"
+      - "&7Skin: &f{skin}"
+      - "&8UUID: {uuid}"

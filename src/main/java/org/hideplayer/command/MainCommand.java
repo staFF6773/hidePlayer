@@ -111,6 +111,22 @@ public class MainCommand implements CommandExecutor, TabCompleter {
             return true;
         }
 
+        if (args[0].equalsIgnoreCase("panel") || args[0].equalsIgnoreCase("admin")) {
+            if (!(sender instanceof Player)) {
+                plugin.sendMessage(sender, "messages.player-only");
+                return true;
+            }
+
+            if (!sender.hasPermission("hideplayer.admin")) {
+                plugin.sendMessage(sender, "messages.no-permission");
+                SoundUtils.playSound((Player) sender, "sounds.error");
+                return true;
+            }
+
+            plugin.getAdminPanelGUI().openPanel((Player) sender, 1);
+            return true;
+        }
+
         // If the subcommand does not exist
         sender.sendMessage(ChatColor.translateAlternateColorCodes('&', "&cUnknown command. Use /hp for help."));
         if (sender instanceof Player) {
@@ -127,6 +143,8 @@ public class MainCommand implements CommandExecutor, TabCompleter {
             suggestions.add("reload");
             suggestions.add("hide");
             suggestions.add("show");
+            suggestions.add("panel");
+            suggestions.add("admin");
             // Filtramos por lo que el usuario está escribiendo
             return suggestions.stream()
                     .filter(s -> s.toLowerCase().startsWith(args[0].toLowerCase()))
