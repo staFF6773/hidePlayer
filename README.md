@@ -7,6 +7,10 @@ HidePlayer is a lightweight and powerful Minecraft plugin for Spigot/Paper (1.20
 
 https://github.com/staFF6773/hidePlayer/wiki
 
+## YouTube Video
+
+[![HidePlayer Showcase](https://img.youtube.com/vi/FWqExlEzge0/maxresdefault.jpg)](https://www.youtube.com/watch?v=FWqExlEzge0)
+
 ## Features
 - **Identity Hiding**: Easily change your in-game nickname and skin.
 - **Commands**: Simple commands to hide and reveal your true identity.
@@ -70,3 +74,7 @@ HidePlayer es un plugin de Minecraft para Spigot/Paper (1.20+) que permite a los
 - Usa `/hp show` para volver a tu identidad original.
 - Usa `/hp panel` (o `admin`) para abrir el panel GUI y ver a los jugadores ocultos.
 - Para cambiar el idioma del plugin al español, cambia `language: "es"` en tu archivo `config.yml`.
+
+### Video de YouTube
+
+[![HidePlayer Demonstration](https://img.youtube.com/vi/FWqExlEzge0/maxresdefault.jpg)](https://www.youtube.com/watch?v=FWqExlEzge0)
