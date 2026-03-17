@@ -32,6 +32,7 @@ https://github.com/staFF6773/hidePlayer/wiki
 |---------|-------------|------------|
 | `/hideplayer hide <nickname> <skin>` | Hides your identity by changing your name and skin. | `hideplayer.hide` |
 | `/hideplayer show` | Restores your original identity. | `hideplayer.show` |
+| `/hideplayer whois <nickname>` | Reveals the real name of a hidden player. | `hideplayer.see` |
 | `/hideplayer reload` | Reloads the plugin configuration and languages. | `hideplayer.admin` |
 | `/hideplayer panel` (or `admin`) | Opens the Admin Panel GUI to view all hidden players. | `hideplayer.admin` |
 
@@ -72,6 +73,7 @@ HidePlayer es un plugin de Minecraft para Spigot/Paper (1.20+) que permite a los
 
 - Usa `/hp hide <nick> <skin>` para ocultarte.
 - Usa `/hp show` para volver a tu identidad original.
+- Usa `/hp whois <nick>` para ver la identidad real de un jugador oculto (requiere permiso `hideplayer.see`).
 - Usa `/hp panel` (o `admin`) para abrir el panel GUI y ver a los jugadores ocultos.
 - Para cambiar el idioma del plugin al español, cambia `language: "es"` en tu archivo `config.yml`.
 

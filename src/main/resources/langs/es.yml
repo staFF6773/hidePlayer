@@ -4,8 +4,13 @@ messages:
   player-only: "%prefix%&cEste comando solo lo pueden usar jugadores."
   hidden-success: "%prefix%&aAhora estás oculto como &f%nick%&a."
   shown-success: "%prefix%&eTu identidad ha sido restaurada."
+  fake-join: "&e%player% ha entrado a la partida"
+  fake-quit: "&e%player% ha salido de la partida"
   skin-error: "%prefix%&cOcurrió un error al cambiar tu skin."
   usage-hide: "%prefix%&7Uso: &f/hp hide <nick> <skin>"
+  usage-whois: "%prefix%&cUso: &f/hp whois <nick>"
+  whois-not-found: "%prefix%&cNo hay ningún jugador oculto con el nombre &f%nick%&c."
+  whois-found: "%prefix%&aEl nombre real de &e%nick% &aes &b%realname%&a."
   invalid-name: "%prefix%&cEl nombre debe tener entre 3 y 16 caracteres y solo contener letras, números y guiones bajos."
   update-available:
     - "%prefix%&e¡Hay una nueva actualización disponible para HidePlayer!"

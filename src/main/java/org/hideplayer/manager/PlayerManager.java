@@ -116,6 +116,17 @@ public class PlayerManager {
         HiddenData data = hiddenPlayers.get(player.getUniqueId());
         return data != null ? data.getOriginalName() : player.getName();
     }
+
+    public String getRealNameByNick(String nick) {
+        String strippedTargetNick = ChatColor.stripColor(ChatColor.translateAlternateColorCodes('&', nick));
+        for (HiddenData data : hiddenPlayers.values()) {
+            String strippedNick = ChatColor.stripColor(ChatColor.translateAlternateColorCodes('&', data.getNick()));
+            if (strippedNick.equalsIgnoreCase(strippedTargetNick)) {
+                return data.getOriginalName();
+            }
+        }
+        return null;
+    }
     
     public Map<UUID, HiddenData> getHiddenPlayers() {
         return hiddenPlayers;

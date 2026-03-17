@@ -3,7 +3,7 @@
 # ################################################
 
 # Configuration version (do not change)
-config-version: 0.1
+config-version: 0.2
 
 # Enable debug messages in console
 debug: true
@@ -21,6 +21,9 @@ language: "en"
 # %1$s is replaced by the Nick + Prefix format of other plugins and then the original is appended
 # Allows using PlaceholderAPI placeholders
 admin-chat-format: "%1$s &8(%hideplayer_original_name%)&r"
+
+# Enable fake join/quit messages when hiding/showing
+fake-connection-messages: true
 
 # Sounds
 sounds:

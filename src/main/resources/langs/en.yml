@@ -4,8 +4,13 @@ messages:
   player-only: "%prefix%&cThis command can only be used by players."
   hidden-success: "%prefix%&aYou are now hidden as &f%nick%&a."
   shown-success: "%prefix%&eYour identity has been restored."
+  fake-join: "&e%player% joined the game"
+  fake-quit: "&e%player% left the game"
   skin-error: "%prefix%&cAn error occurred while changing your skin."
   usage-hide: "%prefix%&7Usage: &f/hp hide <nick> <skin>"
+  usage-whois: "%prefix%&cUsage: &f/hp whois <nick>"
+  whois-not-found: "%prefix%&cNo player is currently hidden with the nickname &f%nick%&c."
+  whois-found: "%prefix%&aThe real name of &e%nick% &ais &b%realname%&a."
   invalid-name: "%prefix%&cThe name must be between 3 and 16 characters and contain only alphanumeric characters and underscores."
   update-available:
     - "%prefix%&eA new update is available for HidePlayer!"
